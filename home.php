@@ -21,19 +21,19 @@
 </head>
 <body>
 <h2>Adenola family survival</h2>
-<p>Welcome, Adenola Survivals<a href="addsub.php">Subscribe to become apart.</a>.</p>
+<p>Welcome, Adenola Survivals<a href="newsub.php">Subscribe to become apart.</a>.</p>
 <hr />
 <?php
 // Retrieve the score data from MySQL
 $query = "SELECT * FROM survival ORDER BY subs DESC";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
-$username = $stmt ->fetchAll();
+$result = $stmt ->fetchAll();
 
 
 // Loop through the array of score data, formatting it as HTML
 echo '<table>';
-foreach ($username as $row) {
+foreach ($result as $row) {
     $i = 0;
     if($i == 0) {
         echo '<tr><td colspan="2" class="username">Top Score:' . $row['username'] . '</td></tr>';

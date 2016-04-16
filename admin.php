@@ -17,7 +17,7 @@ require_once ('vars.php');
 require_once ('authorize.php');
 
 // Retrieve the score data from MySQL
-$query = "SELECT * FROM subs ORDER BY score DESC, date ASC";
+$query = "SELECT * FROM subs ORDER BY username DESC, date ASC";
 $stmt = $dbh->prepare($query);
 $stmt->execute();
 $result = $stmt ->fetchAll();
@@ -26,7 +26,7 @@ $result = $stmt ->fetchAll();
 echo '<table>';
 foreach ($result as $row) {
     // Display the score data
-    echo '<tr class="userrow"><td><strong>' . $row['name'] . '</strong></td>';
+    echo '<tr class="user row"><td><strong>' . $row['name'] . '</strong></td>';
     echo '<td>' . $row['date'] . '</td>';
     echo '<td>' . $row['username'] . '</td>';
     echo '<td><a href="removesub.php?id=' . $row['id'] . '&amp;date=' . $row['date'] .
